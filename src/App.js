@@ -119,7 +119,7 @@ const App = () => {
           Start Over?
         </a>
         <footer>
-          <p>&copy; Ariana Brashear, 2022</p>
+          <p className="footer_text">&copy; Ariana Brashear, 2022</p>
         </footer>
       </div>
     </>
