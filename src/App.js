@@ -55,6 +55,16 @@ const App = () => {
     // Otherwise, return null.
     return null;
   };
+
+  //////////---------- TIE CHECK ----------//////////
+  const calculateTie = (squares) => {
+    if (gameOn && squares.every((v) => v !== null)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   //////////---------- CONDITIONAL ----------//////////
   if (gameOn) {
     // If the game is running and the value our winning function returned matches Player 1 ("☀️"), return this and turn the game off.
@@ -65,20 +75,10 @@ const App = () => {
     } else if (calculateWinner(squares) === "🌧") {
       setGameOn(false);
       setPlayerStatus("Player 2 wins!");
+    } else if (calculateTie(squares) === true) {
+      setGameOn(false);
+      setPlayerStatus("It's a tie!");
     }
-  }
-  //////////---------- TIE CHECK ----------//////////
-  const calculateTie = (squares) => {
-    if (gameOn && squares.every((v) => v !== null)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  if (calculateTie(squares) === true) {
-    setGameOn(false);
-    setPlayerStatus("It's a tie!");
   }
 
   //////////---------- ONCLICK GAMEPLAY ----------//////////
